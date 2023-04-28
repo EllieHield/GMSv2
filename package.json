@@ -1,0 +1,7 @@
+{
+  "name": "gms2",
+  "private": true,
+  "dependencies": {
+    "semantic-release": "^19.0.0"
+  }
+}
