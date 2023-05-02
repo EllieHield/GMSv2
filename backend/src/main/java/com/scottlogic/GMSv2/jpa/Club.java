@@ -10,7 +10,7 @@ public class Club {
 
   @Id
   @GeneratedValue
-  private UUID id;
+  private String id;
   private String name;
   private String adress;
   private String shortName;
@@ -20,7 +20,7 @@ public class Club {
   public Club() {
   }
 
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
@@ -36,7 +36,7 @@ public class Club {
     return shortName;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 

@@ -31,7 +31,7 @@ public class ClubController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Club> getClubById(@PathVariable UUID id) {
+  public ResponseEntity<Club> getClubById(@PathVariable String id) {
     Optional<Club> optionalClub = clubRepo.findById(id);
     if (optionalClub.isPresent()){
       return new ResponseEntity<>(optionalClub.get(), HttpStatus.OK);
@@ -47,7 +47,7 @@ public class ClubController {
   }
 
   @DeleteMapping()
-  public ResponseEntity<Void> deleteClub(@RequestParam(name = "id") UUID clubId) {
+  public ResponseEntity<Void> deleteClub(@RequestParam(name = "id") String clubId) {
     clubRepo.deleteById(clubId);
     return new ResponseEntity<>(HttpStatus.OK);
   }
