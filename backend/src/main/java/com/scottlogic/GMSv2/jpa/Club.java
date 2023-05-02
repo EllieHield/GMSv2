@@ -1,6 +1,7 @@
 package com.scottlogic.GMSv2.jpa;
 
 import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ public class Club {
 
   @Id
   @GeneratedValue
+  @Column(columnDefinition = "BINARY(16)")
   private UUID id;
   private String name;
   private String adress;

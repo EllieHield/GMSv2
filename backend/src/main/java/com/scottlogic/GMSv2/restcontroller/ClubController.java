@@ -31,7 +31,7 @@ public class ClubController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Club> getClubById(@PathVariable UUID id) {
+  public ResponseEntity<Club> getClubById(@PathVariable(value="id") UUID id) {
     Optional<Club> optionalClub = clubRepo.findById(id);
     if (optionalClub.isPresent()){
       return new ResponseEntity<>(optionalClub.get(), HttpStatus.OK);
