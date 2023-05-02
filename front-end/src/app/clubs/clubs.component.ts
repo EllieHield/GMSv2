@@ -4,6 +4,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import data from './sample-clubs.json';
+import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
 
 @Component({
   selector: 'app-clubs',
@@ -12,7 +13,7 @@ import data from './sample-clubs.json';
 })
 export class ClubsComponent {
   public columnDefs: ColDef[] = [
-    { field: 'name'},
+    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/clubs' } },
     { field: 'shortName'},
     { field: 'address'}
   ];
