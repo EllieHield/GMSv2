@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { GridComponent } from './grid/grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ClubsComponent } from './clubs/clubs.component';
 import { ClubComponent } from './club/club.component';
@@ -15,12 +14,13 @@ import { LinkRendererComponent } from './cell-renderers/link-cell/link-cell.comp
 @NgModule({
   declarations: [
     AppComponent,
-    GridComponent,
     ClubsComponent,
+    ClubComponent,
     LinkRendererComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'clubs', component: ClubsComponent },
       { path: 'clubs/:clubName', component: ClubComponent }
@@ -28,9 +28,8 @@ import { LinkRendererComponent } from './cell-renderers/link-cell/link-cell.comp
     BrowserAnimationsModule,
     FormsModule,
     AgGridModule,
-    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
