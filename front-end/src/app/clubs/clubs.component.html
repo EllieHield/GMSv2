@@ -1,6 +1,4 @@
-<!-- Button to clear selection -->
-<button (click)="clearSelection()">Clear Selection</button>
-<!-- AG Grid Angular Component -->
+<h1 class="title">Clubs</h1>
 <ag-grid-angular
    style="width: 100%; height: 100%"
    class="ag-theme-alpine"
@@ -10,5 +8,4 @@
    [rowSelection]="'multiple'"
    [animateRows]="true"
    (gridReady)="onGridReady($event)"
-   (cellClicked)="onCellClicked($event)"
  ></ag-grid-angular>

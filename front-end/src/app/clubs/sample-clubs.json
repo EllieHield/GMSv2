@@ -1,0 +1,6 @@
+[
+    { "name": "Firebrands", "id": "001AAA", "address": "Longwood, Clevedon Road, Failand, Bristol BS8 3TL", "shortName": "FHC", "teams": [] },
+    { "name": "Bristol City", "id": "002BBB", "address": "Ashton Rd, Bristol BS3 2EJ", "shortName": "BCFC", "teams": [] },
+    { "name": "Liverpool Football Club", "id": "003CCC", "address": "Anfield Rd, Anfield, Liverpool L4 0TH", "shortName": "LFC", "teams": [] },
+    { "name": "Beeston Hockey Club", "id": "004DDD", "address": "Highfields Park, University Blvd, Nottingham NG7 2PS", "shortName": "BHC", "teams": [] }
+]

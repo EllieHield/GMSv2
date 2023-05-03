@@ -3,47 +3,45 @@ import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
+import data from './sample-clubs.json';
+import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
 
 @Component({
-  selector: 'app-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.scss']
+  selector: 'app-clubs',
+  templateUrl: './clubs.component.html',
+  styleUrls: ['./clubs.component.css']
 })
-export class GridComponent {
-  // Each Column Definition results in one Column.
+export class ClubsComponent {
   public columnDefs: ColDef[] = [
-    { field: 'make'},
-    { field: 'model'},
-    { field: 'price' }
+    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/clubs' } },
+    { field: 'shortName'},
+    { field: 'address'}
   ];
 
-  // DefaultColDef sets props common to all Columns
   public defaultColDef: ColDef = {
     sortable: true,
     filter: true,
   };
 
-  // Data that gets displayed in the grid
   public rowData$!: Observable<any[]>;
 
-  // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
   constructor(private http: HttpClient) {}
 
-  // Example load data from server
   onGridReady(params: GridReadyEvent) {
-    this.rowData$ = this.http
-      .get<any[]>('https://www.ag-grid.com/example-assets/row-data.json');
+    this.rowData$ = new Observable(observer => {
+      observer.next(data)
+      observer.complete()
+    });
   }
 
-  // Example of consuming Grid Event
   onCellClicked( e: CellClickedEvent): void {
     console.log('cellClicked', e);
   }
 
-  // Example using Grid's API
   clearSelection(): void {
     this.agGrid.api.deselectAll();
   }
+
 }
