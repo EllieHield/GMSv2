@@ -27,4 +27,4 @@ jobs:
         run: cd front-end
 
       - name: Test
-        run: pwd
+        run: dir
