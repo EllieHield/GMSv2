@@ -24,5 +24,5 @@ jobs:
       #   displayName: Navigate to Front End
 
       - name: Test Angular
-        run: pwd
+        script: pwd
 
