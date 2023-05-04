@@ -1,3 +1,4 @@
 <a routerLink="/">Home Page</a><br>
-<a routerLink="/clubs">Clubs</a>
+<a routerLink="/clubs">Clubs</a><br>
+<!-- workaround to be able to access a team display, remove when Club page is implemented --> <a [routerLink]="['/teams', '00000001-0000-0000-0000-000000000000']">Team Amazing</a>
 <router-outlet></router-outlet>
