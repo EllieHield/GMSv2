@@ -1,5 +1,6 @@
 package com.scottlogic.GMSv2.jpa;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ public class Team {
   private String name;
   private String address;
   private String shortName;
+  private String league;
   @Column(name = "CLUBID")
   private UUID clubId;
 
@@ -37,6 +39,14 @@ public class Team {
 
   public String getShortName() {
     return shortName;
+  }
+
+  public String getLeague() {
+    return league;
+  }
+
+  public void setLeague(String league) {
+    this.league = league;
   }
 
   public void setId(UUID id) {
