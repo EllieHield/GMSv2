@@ -17,10 +17,7 @@ jobs:
           node-version: 16.x
           cache: 'npm'
 
-      # - name: Install Node.js dependencies
-      #   run: npm ci
-
-      - name: Test
+      - name: Run Front End Tests
         run: |
           cd front-end
           npm ci
