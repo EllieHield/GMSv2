@@ -24,4 +24,4 @@ jobs:
         run: |
           cd front-end
           npm ci
-          npm test
+          npm test -- --watch=false --browsers=ChromeHeadless
