@@ -23,6 +23,8 @@ jobs:
       # - script: echo dir
       #   displayName: Navigate to Front End
 
-      - name: Test Angular
-        run: dir
+      - name: Navigate
+        run: cd front-end
 
+      - name: Test
+        run: pwd
