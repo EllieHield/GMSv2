@@ -20,9 +20,9 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - script: echo dir
-        displayName: Navigate to Front End
+      # - script: echo dir
+      #   displayName: Navigate to Front End
 
-      # - name: Test Angular
-      #   run: npm test
+      - name: Test Angular
+        run: echo dir
 
