@@ -23,8 +23,10 @@ jobs:
       # - script: echo dir
       #   displayName: Navigate to Front End
 
-      - name: Navigate
-        run: cd front-end
+      # - name: Navigate
+      #   run: cd front-end
 
       - name: Test
-        run: dir
+        run: |
+          cd front-end
+          npm test
