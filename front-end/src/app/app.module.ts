@@ -10,20 +10,23 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ClubsComponent } from './clubs/clubs.component';
 import { ClubComponent } from './club/club.component';
 import { LinkRendererComponent } from './cell-renderers/link-cell/link-cell.component';
+import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClubsComponent,
     ClubComponent,
-    LinkRendererComponent
+    LinkRendererComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'clubs', component: ClubsComponent },
-      { path: 'clubs/:clubName', component: ClubComponent }
+      { path: 'clubs/:clubName', component: ClubComponent },
+      { path: 'teams/:teamName', component: TeamComponent }
     ]),
     BrowserAnimationsModule,
     FormsModule,
