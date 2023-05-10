@@ -14,7 +14,8 @@ public class Club {
   @Column(columnDefinition = "BINARY(16)")
   private UUID id;
   private String name;
-  private String adress;
+  private String address;
+  @Column(name = "SHORTNAME")
   private String shortName;
   //@OneToMany(mappedBy = "club")
   //private List<Team> teams;
@@ -30,8 +31,8 @@ public class Club {
     return name;
   }
 
-  public String getAdress() {
-    return adress;
+  public String getAddress() {
+    return address;
   }
 
   public String getShortName() {
@@ -46,8 +47,8 @@ public class Club {
     this.name = name;
   }
 
-  public void setAdress(String adress) {
-    this.adress = adress;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public void setShortName(String shortName) {

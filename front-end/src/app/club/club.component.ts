@@ -24,8 +24,9 @@ export class ClubComponent {
   
   columnDefs: ColDef[] = [
     { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/teams' } },
-    { field: 'address'},
-    { field: 'shortName' }
+    { field: 'league'},
+    { field: 'gender' },
+    { field: 'age' }
   ];
 
   defaultColDef: ColDef = {
