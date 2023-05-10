@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +32,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(TeamController.class)
 public class TeamControllerTest {
 
-  @Autowired
   private MockMvc mockMvc;
+
+  @Autowired
+  private WebApplicationContext webApplicationContext;
 
   @MockBean
   private TeamRepository teamRepository;
@@ -55,6 +59,7 @@ public class TeamControllerTest {
     List<Team> teams = Arrays.asList(teamA, teamB);
     when(teamRepository.findAll()).thenReturn(teams);
     when(teamRepository.findById(teamAId)).thenReturn(Optional.of(teamA));
+    mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
   }
 
   @Test
