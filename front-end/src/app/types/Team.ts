@@ -1,7 +1,8 @@
 export type Team = {
     id: string,
     name: string,
-    address: string,
-    shortName: string,
+    league: string,
+    gender: string,
+    ageRange: string,
     clubId: string
 }
