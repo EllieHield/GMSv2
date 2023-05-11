@@ -15,8 +15,9 @@ public class Team {
   private UUID id;
   @Column
   private String name;
-  private String address;
-  private String shortName;
+  private League league;
+  private Gender gender;
+  private AgeRange ageRange;
   @Column(name = "CLUBID")
   private UUID clubId;
 
@@ -31,14 +32,6 @@ public class Team {
     return name;
   }
 
-  public String getAddress() {
-    return address;
-  }
-
-  public String getShortName() {
-    return shortName;
-  }
-
   public void setId(UUID id) {
     this.id = id;
   }
@@ -47,18 +40,35 @@ public class Team {
     this.name = name;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public void setShortName(String shortName) {
-    this.shortName = shortName;
-  }
   public void setClubId(UUID clubId) {
     this.clubId = clubId;
   }
 
   public UUID getClubId() {
     return this.clubId;
+  }
+
+  public League getLeague() {
+    return league;
+  }
+
+  public void setLeague(League league) {
+    this.league = league;
+  }
+
+  public Gender getGender() {
+    return gender;
+  }
+
+  public void setGender(Gender gender) {
+    this.gender = gender;
+  }
+
+  public AgeRange getAgeRange() {
+    return ageRange;
+  }
+
+  public void setAgeRange(AgeRange ageRange) {
+    this.ageRange = ageRange;
   }
 }

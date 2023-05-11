@@ -3,8 +3,8 @@ import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
-import data from './sample-clubs.json';
 import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
+import { ClubService } from '../club-service/club.service';
 
 @Component({
   selector: 'app-clubs',
@@ -27,13 +27,10 @@ export class ClubsComponent {
 
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
-  constructor(private http: HttpClient) {}
+  constructor(private clubService: ClubService) {}
 
   onGridReady(params: GridReadyEvent) {
-    this.rowData$ = new Observable(observer => {
-      observer.next(data)
-      observer.complete()
-    });
+    this.rowData$ = this.clubService.getClubs();
   }
 
   onCellClicked( e: CellClickedEvent): void {
