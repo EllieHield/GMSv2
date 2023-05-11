@@ -28,13 +28,17 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(ClubController.class)
 public class ClubControllerTest {
 
-  @Autowired
   private MockMvc mockMvc;
+
+  @Autowired
+  private WebApplicationContext webApplicationContext;
 
   @MockBean
   private ClubRepository clubRepository;
@@ -51,6 +55,7 @@ public class ClubControllerTest {
     List<Club> clubs = Arrays.asList(clubA, clubB);
     when(clubRepository.findAll()).thenReturn(clubs);
     when(clubRepository.findById(clubAId)).thenReturn(Optional.of(clubA));
+    mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
   }
 
   @Test

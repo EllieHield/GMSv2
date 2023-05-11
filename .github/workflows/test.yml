@@ -22,3 +22,8 @@ jobs:
           cd front-end
           npm ci
           npm test -- --watch=false --browsers=ChromeHeadless
+
+      - name: Run Back End Tests
+        run: |
+          cd backend
+          sh gradlew clean test
