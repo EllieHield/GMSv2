@@ -5,6 +5,7 @@ import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
 import { ClubService } from '../club-service/club.service';
+import { Club } from '../types/Club';
 
 @Component({
   selector: 'app-clubs',
@@ -12,8 +13,9 @@ import { ClubService } from '../club-service/club.service';
   styleUrls: ['./clubs.component.css']
 })
 export class ClubsComponent {
+  rowDataGetter = ({ data }: { data: Club[] }) => data;
   public columnDefs: ColDef[] = [
-    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/clubs' } },
+    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/clubs' }, valueGetter: this.rowDataGetter },
     { field: 'shortName'},
     { field: 'address'}
   ];
@@ -23,7 +25,7 @@ export class ClubsComponent {
     filter: true,
   };
 
-  public rowData$!: Observable<any[]>;
+  public rowData$!: Observable<Club[]>;
 
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 

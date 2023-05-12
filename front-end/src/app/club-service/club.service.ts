@@ -16,11 +16,15 @@ export class ClubService {
     return this.http.get<Team[]>(`${this.host}/teams/`);
   }
 
-  public getTeamsInClub(club: Club): Observable<Team[]> {
-    return this.http.get<Team[]>(`${this.host}/teams?clubId=${club.id}`);
+  public getTeamsInClub(clubId: string): Observable<Team[]> {
+    return this.http.get<Team[]>(`${this.host}/teams?clubId=${clubId}`);
   }
 
   public getClubs(): Observable<Club[]> {
     return this.http.get<Club[]>(`${this.host}/clubs/`);
+  }
+
+  public getClub(clubId: string): Observable<Club> {
+    return this.http.get<Club>(`${this.host}/clubs/${clubId}`);
   }
 }

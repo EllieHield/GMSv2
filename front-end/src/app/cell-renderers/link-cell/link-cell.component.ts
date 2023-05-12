@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AgRendererComponent } from 'ag-grid-angular';
 
 @Component({
-    template: `<a [routerLink]="[params.inRouterLink,params.value]">{{params.value}}</a>`
+    template: `<a [routerLink]="[params.inRouterLink,params.getValue().id]">{{params.getValue().name}}</a>`
 })
 export class LinkRendererComponent implements AgRendererComponent {    
     params: any;    

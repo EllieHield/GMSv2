@@ -21,9 +21,10 @@ export class ClubComponent {
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
   constructor(private clubService: ClubService, private route: ActivatedRoute) {}
-  
+  rowDataGetter = ({ data }: { data: Team[] }) => data;
+
   columnDefs: ColDef[] = [
-    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/teams' } },
+    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/teams' }, valueGetter: this.rowDataGetter },
     { field: 'league'},
     { field: 'gender' },
     { field: 'age' }
@@ -35,11 +36,10 @@ export class ClubComponent {
   };
 
   onGridReady() {
-    this.clubService.getClubs().subscribe((clubs) => {
-      this.club = clubs.find(club => club.name === this.route.snapshot.paramMap.get('clubName'));
-      if (this.club) {
-        this.rowData$ = this.clubService.getTeamsInClub(this.club);
-      }
-    });
+    const clubId = this.route.snapshot.paramMap.get('clubId');
+    if (clubId) {
+      this.clubService.getClub(clubId).subscribe(club => this.club = club);
+      this.rowData$ = this.clubService.getTeamsInClub(clubId);
+    }
   }
 }
