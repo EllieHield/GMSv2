@@ -25,8 +25,8 @@ import { TeamComponent } from './team/team.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'clubs', component: ClubsComponent },
-      { path: 'clubs/:clubName', component: ClubComponent },
-      { path: 'teams/:teamName', component: TeamComponent }
+      { path: 'clubs/:clubId', component: ClubComponent },
+      { path: 'teams/:teamId', component: TeamComponent }
     ]),
     BrowserAnimationsModule,
     FormsModule,

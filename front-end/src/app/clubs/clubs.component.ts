@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
 import { ClubService } from '../club-service/club.service';
+import { Club } from '../types/Club';
 
 @Component({
   selector: 'app-clubs',
@@ -23,7 +23,7 @@ export class ClubsComponent {
     filter: true,
   };
 
-  public rowData$!: Observable<any[]>;
+  public rowData$!: Observable<Club[]>;
 
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
