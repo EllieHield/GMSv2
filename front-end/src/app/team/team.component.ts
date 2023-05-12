@@ -19,15 +19,8 @@ export class TeamComponent {
     private route: ActivatedRoute
   ) {}
 
-  teamName: string | null = 'error';
-  team: Team | undefined 
-  club: Club | undefined
-
-  ngOnInit() {
-    this.route.paramMap.subscribe((params) => {
-      this.teamName = params.get('teamId');
-    });
-  }
+  team: Team | undefined;
+  club: Club | undefined;
 
   public columnDefs: ColDef[] = [
     { field: 'name' },
@@ -45,14 +38,11 @@ export class TeamComponent {
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
   onGridReady(params: GridReadyEvent) {
-    if (this.teamName) {
-      this.teamService.getTeam(this.teamName).subscribe((data) => {
-        this.team = data;
-        this.teamService.getClubOfTeam(this.team.clubId).subscribe((data) => {
-          this.club = data;
-        });
-      });
-      this.rowData$ = this.teamService.getPlayersInTeam(this.teamName);
+    const teamId = this.route.snapshot.paramMap.get('teamId');
+    if (teamId) {
+      this.teamService.getTeam(teamId).subscribe(team => this.team = team);
+      this.teamService.getClubOfTeam(teamId).subscribe(club => this.club = club);
+      this.rowData$ = this.teamService.getPlayersInTeam(teamId);
     }
   }
 

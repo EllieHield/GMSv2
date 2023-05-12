@@ -18,8 +18,8 @@ export class TeamService {
     return this.http.get<Team>(`${this.host}/teams/${teamId}`);
   }
 
-  public getClubOfTeam(clubId : string) : Observable<Club> {
-    return this.http.get<Club>(`${this.host}/clubs/${clubId}`);
+  public getClubOfTeam(teamId : string) : Observable<Club> {
+    return this.http.get<Club>(`${this.host}/teams/${teamId}/club`);
   }
 
   public getPlayersInTeam(teamId: string): Observable<Player[]> {
