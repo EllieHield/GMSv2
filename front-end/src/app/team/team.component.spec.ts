@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AgGridModule } from 'ag-grid-angular';
 import { TeamComponent } from './team.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
@@ -11,6 +12,7 @@ describe('TeamComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
+        RouterTestingModule,
         AgGridModule
       ],
       declarations: [ TeamComponent ]
