@@ -25,7 +25,7 @@ export class TeamComponent {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
-      this.teamName = params.get('teamName');
+      this.teamName = params.get('teamId');
     });
   }
 
@@ -47,9 +47,9 @@ export class TeamComponent {
   onGridReady(params: GridReadyEvent) {
     if (this.teamName) {
       this.teamService.getTeam(this.teamName).subscribe((data) => {
-        this.team = data as Team;
+        this.team = data;
         this.teamService.getClubOfTeam(this.team.clubId).subscribe((data) => {
-          this.club = data as Club;
+          this.club = data;
         });
       });
       this.rowData$ = this.teamService.getPlayersInTeam(this.teamName);
