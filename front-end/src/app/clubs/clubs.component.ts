@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
@@ -13,9 +12,8 @@ import { Club } from '../types/Club';
   styleUrls: ['./clubs.component.css']
 })
 export class ClubsComponent {
-  rowDataGetter = ({ data }: { data: Club[] }) => data;
   public columnDefs: ColDef[] = [
-    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/clubs' }, valueGetter: this.rowDataGetter },
+    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/clubs' } },
     { field: 'shortName'},
     { field: 'address'}
   ];
