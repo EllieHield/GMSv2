@@ -2,6 +2,7 @@ package com.scottlogic.GMSv2.restcontroller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.scottlogic.GMSv2.jpa.Club;
+import com.scottlogic.GMSv2.jpa.ClubRepository;
 import com.scottlogic.GMSv2.jpa.Team;
 import com.scottlogic.GMSv2.jpa.TeamRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,9 @@ public class TeamControllerTest {
   @MockBean
   private TeamRepository teamRepository;
 
+  @MockBean
+  private ClubRepository clubRepository;
+
   private final UUID teamAId = UUID.randomUUID();
   private final UUID clubAId = UUID.randomUUID();
 
@@ -47,6 +51,7 @@ public class TeamControllerTest {
   void init() {
     Club clubA = new Club();
     clubA.setId(clubAId);
+    clubA.setName("Club A");
     Club clubB = new Club();
     clubB.setId(UUID.randomUUID());
     Team teamA = new Team();
@@ -59,6 +64,7 @@ public class TeamControllerTest {
     List<Team> teams = Arrays.asList(teamA, teamB);
     when(teamRepository.findAll()).thenReturn(teams);
     when(teamRepository.findById(teamAId)).thenReturn(Optional.of(teamA));
+    when(clubRepository.findById(clubAId)).thenReturn(Optional.of(clubA));
     mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
   }
 
@@ -85,6 +91,14 @@ public class TeamControllerTest {
         .andExpect(status().isOk())
         .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(teamAId.toString()))
         .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Team A"));
+  }
+
+  @Test
+  public void testGetClubByTeamId() throws Exception {
+    mockMvc.perform(get("/teams/{id}/club", teamAId))
+        .andExpect(status().isOk())
+        .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(clubAId.toString()))
+        .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("Club A"));
   }
 
   @Test
