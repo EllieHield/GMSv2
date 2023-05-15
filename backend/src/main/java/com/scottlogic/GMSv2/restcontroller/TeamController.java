@@ -21,6 +21,10 @@ public class TeamController {
   @Autowired
   private TeamRepository teamRepo;
 
+  @Autowired
+  private ClubRepository clubRepo;
+
+
   @GetMapping("/{id}")
   public ResponseEntity<Team> getTeamById(@PathVariable(value="id") UUID id) {
     Optional<Team> optionalTeam = teamRepo.findById(id);
@@ -28,6 +32,22 @@ public class TeamController {
             .map(team -> new ResponseEntity<>(team, HttpStatus.OK))
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
   }
+
+  @GetMapping("/{id}/club")
+  public ResponseEntity<Club> getClubByTeamId(@PathVariable(value="id") UUID teamId) {
+    Optional<Team> optionalTeam = teamRepo.findById(teamId);
+
+    if (optionalTeam.isPresent()) {
+      Optional<Club> optionalClub = clubRepo.findById(optionalTeam.get().getClubId());
+
+      if (optionalClub.isPresent()) {
+        return new ResponseEntity<>(optionalClub.get(), HttpStatus.OK);
+      }
+    }
+
+    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  }
+
 
   @GetMapping()
   public ResponseEntity<List<Team>> getTeams() {

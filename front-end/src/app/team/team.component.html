@@ -1,1 +1,19 @@
-<p>team works!</p>
+<h1 class="title" *ngIf="team">{{team.name}}</h1>
+<div *ngIf="club && team">
+  <p>Name: {{team.name}}</p>
+  <p>League: {{team.league}}</p>
+  <p>Gender: {{team.gender}}</p>
+  <p>Age: {{team.ageRange}}</p>
+  <p>Club: <a [routerLink]="['/clubs', team.clubId]">{{club.name}}</a><br></p>
+</div>
+
+<ag-grid-angular
+   style="width: 50%; height: 50%"
+   class="ag-theme-alpine"
+   [columnDefs]="columnDefs"
+   [defaultColDef]="defaultColDef"
+   [rowData]="rowData$ | async"
+   [rowSelection]="'multiple'"
+   [animateRows]="true"
+   (gridReady)="onGridReady($event)"
+ ></ag-grid-angular>

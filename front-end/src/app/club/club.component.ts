@@ -26,7 +26,7 @@ export class ClubComponent {
     { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/teams' } },
     { field: 'league'},
     { field: 'gender' },
-    { field: 'age' }
+    { field: 'ageRange' }
   ];
 
   defaultColDef: ColDef = {

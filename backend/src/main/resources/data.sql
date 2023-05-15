@@ -2,10 +2,9 @@ INSERT INTO club (id, name, address, shortName) VALUES (1, 'Firebrands', 'Longwo
 INSERT INTO club (id, name, address, shortName) VALUES (2, 'Bristol City', 'Ashton Rd, Bristol BS3 2EJ', 'BCFC');
 INSERT INTO club (id, name, address, shortName) VALUES (3, 'Liverpool Football Club', 'Ashton Rd, Bristol BS3 2EJ', 'LFC');
 INSERT INTO club (id, name, address, shortName) VALUES (4, 'Beeston Hockey Club', 'Highfields Park, University Blvd, Nottingham NG7 2PS', 'BHC');
-INSERT INTO club (id, name) VALUES (5, 'Club 5');
-INSERT INTO team (id, name, clubId) VALUES (1, 'Team Amazing', 1);
-INSERT INTO team (id, name, clubId) VALUES (2, 'Matt Team 1', 1);
-INSERT INTO team (id, name, clubId) VALUES (3, 'Bad Team', 2);
-INSERT INTO player (id, name) VALUES (1, 'Ellie Hield');
-INSERT INTO player (id, name) VALUES (2, 'Matt Smith');
-INSERT INTO player (id, name) VALUES (3, 'Daniel Lucas');
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (1, 'First Team', 0, 0, 1, 1);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (2, 'Second Team', 1, 0, 1, 1);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (3, 'First Team', 0, 1, 1, 2);
+INSERT INTO player (id, name, address, email) VALUES (1, 'Ellie Hield', 'Awesome Road 1', 'ehield@scottlogic.com');
+INSERT INTO player (id, name, address, email) VALUES (2, 'Matt Smith', 'Eurovision Road 22', 'msmith@scottlogic.com');
+INSERT INTO player (id, name, address, email) VALUES (3, 'Daniel Lucas', 'Royal Oak Road 54', 'dalucas@scottlogic.com');
