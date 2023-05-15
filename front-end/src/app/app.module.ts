@@ -1,26 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AgGridModule } from 'ag-grid-angular';
 import { ClubsComponent } from './clubs/clubs.component';
 import { ClubComponent } from './club/club.component';
-import { LinkRendererComponent } from './cell-renderers/link-cell/link-cell.component';
 import { TeamComponent } from './team/team.component';
-import { GridComponent } from './grid/grid.component';
+import { GridModule } from './grid/grid.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClubsComponent,
     ClubComponent,
-    LinkRendererComponent,
-    TeamComponent,
-    GridComponent
+    TeamComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +24,7 @@ import { GridComponent } from './grid/grid.component';
       { path: 'clubs/:clubId', component: ClubComponent },
       { path: 'teams/:teamId', component: TeamComponent }
     ]),
-    BrowserAnimationsModule,
-    FormsModule,
-    AgGridModule,
+    GridModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
