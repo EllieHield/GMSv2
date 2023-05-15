@@ -11,6 +11,7 @@ import { ClubsComponent } from './clubs/clubs.component';
 import { ClubComponent } from './club/club.component';
 import { LinkRendererComponent } from './cell-renderers/link-cell/link-cell.component';
 import { TeamComponent } from './team/team.component';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TeamComponent } from './team/team.component';
     ClubsComponent,
     ClubComponent,
     LinkRendererComponent,
-    TeamComponent
+    TeamComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,

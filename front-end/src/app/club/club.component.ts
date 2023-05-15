@@ -8,6 +8,7 @@ import { Club } from '../types/Club';
 import { ClubService } from '../club-service/club.service';
 import { ActivatedRoute } from '@angular/router';
 import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
+import { GridColumn } from '../types/GridColumn';
 
 @Component({
   selector: 'app-club',
@@ -17,24 +18,17 @@ import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.com
 export class ClubComponent {
   club: Club | undefined;
   teams: Team[] = [];
-  rowData$: Observable<Team[]> = of();
-  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
-
-  constructor(private clubService: ClubService, private route: ActivatedRoute) {}
-
-  columnDefs: ColDef[] = [
-    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/teams' } },
+  rowData$: Observable<Team[]> = of();  
+  columns: GridColumn[] = [
+    { field: 'name', routerLink: 'teams' },
     { field: 'league'},
     { field: 'gender' },
     { field: 'ageRange' }
   ];
 
-  defaultColDef: ColDef = {
-    sortable: true,
-    filter: true,
-  };
+  constructor(private clubService: ClubService, private route: ActivatedRoute) {}
 
-  onGridReady() {
+  ngOnInit() {
     const clubId = this.route.snapshot.paramMap.get('clubId');
     if (clubId) {
       this.clubService.getClub(clubId).subscribe(club => this.club = club);

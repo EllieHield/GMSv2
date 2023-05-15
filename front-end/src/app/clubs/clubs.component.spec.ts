@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AgGridModule } from 'ag-grid-angular';
 
 import { ClubsComponent } from './clubs.component';
+import { GridComponent } from '../grid/grid.component';
 
 
 describe('ClubsComponent', () => {
@@ -15,7 +16,7 @@ describe('ClubsComponent', () => {
         HttpClientTestingModule,
         AgGridModule
       ],
-      declarations: [ ClubsComponent ]
+      declarations: [ ClubsComponent, GridComponent ]
     })
     .compileComponents();
 

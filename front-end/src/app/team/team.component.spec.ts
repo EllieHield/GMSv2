@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AgGridModule } from 'ag-grid-angular';
 import { TeamComponent } from './team.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { GridComponent } from '../grid/grid.component';
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
@@ -15,7 +16,7 @@ describe('TeamComponent', () => {
         RouterTestingModule,
         AgGridModule
       ],
-      declarations: [ TeamComponent ]
+      declarations: [ TeamComponent, GridComponent ]
     })
     .compileComponents();
 

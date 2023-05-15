@@ -4,6 +4,7 @@ import { ClubComponent } from './club.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AgGridModule } from 'ag-grid-angular';
+import { GridComponent } from '../grid/grid.component';
 
 describe('ClubComponent', () => {
   let component: ClubComponent;
@@ -16,7 +17,7 @@ describe('ClubComponent', () => {
         RouterTestingModule,
         AgGridModule
       ],
-      declarations: [ ClubComponent ]
+      declarations: [ ClubComponent, GridComponent ]
     })
     .compileComponents();
 
