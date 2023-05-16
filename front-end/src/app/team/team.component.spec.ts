@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { AgGridModule } from 'ag-grid-angular';
 import { TeamComponent } from './team.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { GridModule } from '../grid/grid.module';
 
 describe('TeamComponent', () => {
   let component: TeamComponent;
@@ -13,9 +13,11 @@ describe('TeamComponent', () => {
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
-        AgGridModule
+        GridModule
       ],
-      declarations: [ TeamComponent ]
+      declarations: [
+        TeamComponent
+      ]
     })
     .compileComponents();
 
