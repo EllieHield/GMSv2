@@ -23,8 +23,7 @@ export class TeamService {
   }
 
   public getPlayersInTeam(teamId: string): Observable<Player[]> {
-    // Endpoint pending. Show all players for now.
-    return this.http.get<Player[]>(`${this.host}/players`);
+    return this.http.get<Player[]>(`${this.host}/players/team/${teamId}`);
   }
 
 }

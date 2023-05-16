@@ -5,6 +5,9 @@ INSERT INTO club (id, name, address, shortName) VALUES (4, 'Beeston Hockey Club'
 INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (1, 'First Team', 0, 0, 1, 1);
 INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (2, 'Second Team', 1, 0, 1, 1);
 INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (3, 'First Team', 0, 1, 1, 2);
-INSERT INTO player (id, name, address, email) VALUES (1, 'Ellie Hield', 'Awesome Road 1', 'ehield@scottlogic.com');
-INSERT INTO player (id, name, address, email) VALUES (2, 'Matt Smith', 'Eurovision Road 22', 'msmith@scottlogic.com');
-INSERT INTO player (id, name, address, email) VALUES (3, 'Daniel Lucas', 'Royal Oak Road 54', 'dalucas@scottlogic.com');
+INSERT INTO player (id, name, address, email, teamId) VALUES (1, 'Ellie Hield', 'Awesome Road 1', 'ehield@scottlogic.com', 1);
+INSERT INTO player (id, name, address, email, teamId) VALUES (2, 'Matt Smith', 'Eurovision Road 22', 'msmith@scottlogic.com', 1);
+INSERT INTO player (id, name, address, email, teamId) VALUES (3, 'Daniel Lucas', 'Royal Oak Road 54', 'dalucas@scottlogic.com', 1);
+INSERT INTO player (id, name, address, email, teamId) VALUES (4, 'Matt Cline', 'Kings Cross 99', 'mcline@scottlogic.com', 2);
+INSERT INTO player (id, name, address, email, teamId) VALUES (5, 'Sarah Haswell', 'Castle Park 420', 'shaswell@scottlogic.com', 2);
+INSERT INTO player (id, name, address, email, teamId) VALUES (6, 'Norman the Badger', 'River Avon 7', 'nbadger@scottlogic.com', 2);

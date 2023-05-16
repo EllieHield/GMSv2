@@ -17,8 +17,6 @@ public class Club {
   private String address;
   @Column(name = "SHORTNAME")
   private String shortName;
-  //@OneToMany(mappedBy = "club")
-  //private List<Team> teams;
 
   public Club() {
   }
