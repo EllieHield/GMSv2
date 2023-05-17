@@ -16,7 +16,8 @@ public class Player {
     private String name;
     private String email;
     private String address;
-    private String team;
+    @Column(name = "TEAMID")
+    private UUID teamId;
 
     public Player() {
     }
@@ -37,10 +38,6 @@ public class Player {
         return email;
     }
 
-    public String getTeam() {
-        return team;
-    }
-
     public void setId(UUID id) {
         this.id = id;
     }
@@ -57,7 +54,11 @@ public class Player {
         this.email = email;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public UUID getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(UUID teamId) {
+        this.teamId = teamId;
     }
 }
