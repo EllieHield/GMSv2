@@ -11,6 +11,8 @@ import { GridModule } from './grid/grid.module';
 import { AddClubFormComponent } from './clubs/add-club-form/add-club-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { PlayerComponent } from './player/player.component';
+import { PlayersComponent } from './players/players.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { HomeComponent } from './home/home.component';
     TeamComponent,
     AddClubFormComponent,
     HomeComponent,
+    PlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,8 @@ import { HomeComponent } from './home/home.component';
       { path: 'clubs/add', component: AddClubFormComponent },
       { path: 'clubs/:clubId', component: ClubComponent },
       { path: 'teams/:teamId', component: TeamComponent },
+      { path: 'players/:playerId', component: PlayerComponent },
+      { path: 'players', component: PlayersComponent }
     ]),
     GridModule,
     FormsModule,
