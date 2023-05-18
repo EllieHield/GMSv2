@@ -10,6 +10,7 @@ import { TeamComponent } from './team/team.component';
 import { GridModule } from './grid/grid.module';
 import { AddClubFormComponent } from './clubs/add-club-form/add-club-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ClubComponent,
     TeamComponent,
     AddClubFormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
+      { path: '', component: HomeComponent },
       { path: 'clubs', component: ClubsComponent },
       { path: 'clubs/add', component: AddClubFormComponent },
       { path: 'clubs/:clubId', component: ClubComponent },
