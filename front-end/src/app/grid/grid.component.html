@@ -6,6 +6,5 @@
    [rowData]="rowData$ | async"
    [rowSelection]="'multiple'"
    [animateRows]="true"
-   (gridReady)="onGridReady($event)"
-   (cellClicked)="onCellClicked($event)"
+   (gridReady)="onGridReady()"
  ></ag-grid-angular>
