@@ -16,7 +16,8 @@ public class Config {
         .authorizeRequests()
         .antMatchers("http://localhost:4200").permitAll()
         .and()
-        .cors();
+        .cors()
+        .and().csrf().disable();
 
     return http.build();
   }
