@@ -12,10 +12,6 @@ export class ClubService {
 
   constructor(private http: HttpClient) { }
 
-  public getTeams(): Observable<Team[]> {
-    return this.http.get<Team[]>(`${this.host}/teams/`);
-  }
-
   public getTeamsInClub(clubId: string): Observable<Team[]> {
     return this.http.get<Team[]>(`${this.host}/teams?clubId=${clubId}`);
   }
@@ -26,5 +22,9 @@ export class ClubService {
 
   public getClub(clubId: string): Observable<Club> {
     return this.http.get<Club>(`${this.host}/clubs/${clubId}`);
+  }
+
+  public addClub(club : Club) : Observable<any> {
+    return this.http.post(`${this.host}/clubs`, club);
   }
 }

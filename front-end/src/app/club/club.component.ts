@@ -1,13 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
 import { Observable, of } from 'rxjs';
 
 import { Team } from '../types/Team';
 import { Club } from '../types/Club';
 import { ClubService } from '../club-service/club.service';
 import { ActivatedRoute } from '@angular/router';
-import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
 import { GridColumn } from '../types/GridColumn';
 
 @Component({
