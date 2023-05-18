@@ -44,11 +44,6 @@ public class ClubController {
 
   @PostMapping()
   public ResponseEntity<Void> addClub(@RequestBody Club club) {
-    System.out.println("New club:");
-    System.out.println(club.getId());
-    System.out.println(club.getName());
-    System.out.println(club.getShortName());
-    System.out.println(club.getAddress());
     clubRepo.save(club);
     return new ResponseEntity<>(HttpStatus.OK);
   }
