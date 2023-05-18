@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 import { Observable, of } from 'rxjs';
 import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
 import { GridColumn } from '../types/GridColumn';
@@ -22,18 +22,15 @@ export class GridComponent<T> {
   defaultColDef: ColDef = {
     sortable: true,
     filter: true,
+    resizable: true
   };
 
-  onGridReady(params: GridReadyEvent) {
+  onGridReady() {
     this.columnDefs = this.columns.map(({ field, routerLink }) => ({
       field,
       cellRenderer: routerLink ? LinkRendererComponent : null,
       cellRendererParams: routerLink ? { inRouterLink: `/${routerLink}` } : null
     }));
-  }
-
-  onCellClicked(e: CellClickedEvent): void {
-    console.log('cellClicked', e);
   }
 
   clearSelection(): void {
