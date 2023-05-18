@@ -22,6 +22,7 @@ export class GridComponent<T> {
   defaultColDef: ColDef = {
     sortable: true,
     filter: true,
+    resizable: true
   };
 
   onGridReady(params: GridReadyEvent) {
