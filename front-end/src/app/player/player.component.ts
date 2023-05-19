@@ -27,7 +27,6 @@ export class PlayerComponent {
     this.teamService.getClubOfTeam(this.player.teamId).subscribe(club => this.clubName = club.name);
   });
 
-
   constructor(
     private playerService: PlayerService,
     private teamService: TeamService,
