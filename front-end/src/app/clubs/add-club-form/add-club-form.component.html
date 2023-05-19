@@ -1,13 +1,32 @@
-<h2>Add new club: </h2>
+<h2>Add new club:</h2>
 <form [formGroup]="clubform">
-    <label for="name">Clubname: </label>
-    <input type="text" required formControlName="name">
-    <br>
-    <label for="shortName">Shortname: </label>
-    <input type="text" required formControlName="shortName">
-    <br>
-    <label for="address">Address: </label>
-    <input type="text" required formControlName="address">
-    <br>
-    <button type="button" (click)="submit()">Submit</button>
+    <!-- Name -->
+  <label for="name">Clubname: </label>
+  <input type="text" formControlName="name" />
+  <div *ngIf="name!.invalid  && (name!.dirty || name!.touched)">
+    Name is required.
+  </div>
+  <br/>
+  <!-- Shortname -->
+  <label for="shortName">Shortname: </label>
+  <input type="text" formControlName="shortName"/>
+  <div *ngIf="(shortName!.dirty || shortName!.touched)">
+    <div *ngIf="shortName!.hasError('required')">
+        Shortname is required.
+    </div>
+    <div *ngIf="shortName!.hasError('minlength') || shortName!.hasError('maxlength')">
+        Shortname must be two or three characters long.
+    </div>
+  </div>
+  <br/>
+  <!-- Addresss --> 
+  <label for="address">Address: </label>
+  <input type="textarea" formControlName="address" />
+  <div *ngIf="address!.invalid  && (address!.dirty || address!.touched)">
+    Address is required.
+  </div>
+  <br/>
+  <!-- Submit button --> 
+  <button type="button" [disabled]="clubform.invalid" (click)="submit()">Submit</button>
+  <div *ngIf="clubform.invalid">Required fields missing.</div>
 </form>
