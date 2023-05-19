@@ -1,9 +1,17 @@
-import { Component, ViewChild } from '@angular/core';
-import { ColDef, GridReadyEvent } from 'ag-grid-community';
-import { LinkRendererComponent } from '../cell-renderers/link-cell/link-cell.component';
-import { Observable } from 'rxjs';
-import { AgGridAngular } from 'ag-grid-angular';
+import { Component } from '@angular/core';
+import { Observable, map, tap } from 'rxjs';
 import { PlayerService } from '../player-service/player.service';
+import { GridColumn } from '../types/GridColumn';
+import { TeamService } from '../team-service/team.service';
+import { Player } from '../types/Player';
+import { Team } from '../types/Team';
+import { ClubService } from '../club-service/club.service';
+import { Club } from '../types/Club';
+
+interface PlayerRow extends Player {
+  club: string | undefined;
+  team: string | undefined;
+} 
 
 @Component({
   selector: 'app-players',
@@ -11,23 +19,27 @@ import { PlayerService } from '../player-service/player.service';
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent {
-  public rowData$!: Observable<any[]>;
+  teams: Team[] = [];
+  clubs: Club[] = [];
+  public teamData$ = this.teamService.getTeams().subscribe(data => this.teams = data);
+  public clubData$ = this.clubService.getClubs().subscribe(data => this.clubs = data);
+  public rowData$: Observable<PlayerRow[]> = this.playerService.getPlayers().pipe(
+    map(players => players.map(player => {
+      const team = this.teams.find(team => team.id === player.teamId);
+      const club = this.clubs.find(club => club.id === team?.clubId);
+      return {
+        ...player,
+        club: club?.name,
+        team: team?.name
+      }
+    })),
+  );
 
-  constructor(private playerService: PlayerService) {};
+  constructor(private playerService: PlayerService, private teamService: TeamService, private clubService: ClubService) { };
 
-  public columnDefs: ColDef[] = [
-    { field: 'name', cellRenderer: LinkRendererComponent, cellRendererParams: { inRouterLink: '/players' } },
-    // TODO: { field: 'teamId', headerName: 'Team', valueGetter: (params) => params.data.teamId } - create team service and use that to return the team name by id
+  public columns: GridColumn[] = [
+    { field: 'name', routerLink: '/players' },
+    { field: 'club' },
+    { field: 'team' }
   ]
-
-  public defaultColDef: ColDef = {
-    sortable: true,
-    filter: true,
-  };
-
-  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
-
-  onGridReady(params: GridReadyEvent) {
-    this.rowData$ = this.playerService.getPlayers();
-  }
 }

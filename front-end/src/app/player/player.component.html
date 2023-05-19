@@ -1,7 +1,25 @@
-<h2>{{player.name}}</h2>
-<h3>Contact Details</h3>
-<p><b>Address: </b>{{player.address}}</p>
-<p><b>Email: </b>{{player.email}}</p>
-<br>
-<h3>Team Information</h3>
-<p>{{player.teamId}}</p>
+<div class="player-card">
+    <h2>{{player?.name}}</h2>
+    <div class="contents">
+        <table class="details-table">
+            <tr>
+                <th>Club</th>
+                <td>{{clubName}}</td>
+            </tr>
+            <tr>
+                <th>Team</th>
+                <td>{{teamName}}</td>
+            </tr>
+            <h3>Contact Details</h3>
+            <tr>
+                <th>Address</th>
+                <td>{{player?.address}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{player?.email}}</td>
+            </tr>
+        </table>
+        <img src="../../assets/Portrait_Placeholder.png" class="image">
+    </div>
+</div>

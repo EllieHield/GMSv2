@@ -1,11 +1,2 @@
-<h1 class="title">Players</h1>
-<ag-grid-angular
-   style="width: 100%; height: 100%"
-   class="ag-theme-alpine"
-   [columnDefs]="columnDefs"
-   [defaultColDef]="defaultColDef"
-   [rowData]="rowData$ | async"
-   [rowSelection]="'multiple'"
-   [animateRows]="true"
-   (gridReady)="onGridReady($event)"
- ></ag-grid-angular>
+<h1 class="title">All Players</h1>
+<app-grid [rowData$]="rowData$" [columns]="columns"></app-grid>

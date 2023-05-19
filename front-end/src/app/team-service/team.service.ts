@@ -26,4 +26,7 @@ export class TeamService {
     return this.http.get<Player[]>(`${this.host}/players/team/${teamId}`);
   }
 
+  public getTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>(`${this.host}/teams`);
+  }
 }

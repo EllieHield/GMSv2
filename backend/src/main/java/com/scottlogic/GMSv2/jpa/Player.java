@@ -1,4 +1,4 @@
-spackage com.scottlogic.GMSv2.jpa;
+package com.scottlogic.GMSv2.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

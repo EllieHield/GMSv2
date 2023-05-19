@@ -1,0 +1,21 @@
+.player-card {
+    background-color: #e4f7e9;
+    padding: 25px;
+    margin: 15px;
+    margin-left: 0px;
+    width: fit-content;
+}
+
+.contents {
+    display: flex;
+    align-items: flex-start;
+}
+
+.details-table {
+    text-align: left;
+}
+
+.image {
+    height: 200px;
+    margin-left: 50px;
+}
