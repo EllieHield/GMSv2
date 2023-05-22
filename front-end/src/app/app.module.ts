@@ -22,6 +22,7 @@ import { PlayersComponent } from './players/players.component';
     TeamComponent,
     AddClubFormComponent,
     HomeComponent,
+    PlayerComponent,
     PlayersComponent
   ],
   imports: [

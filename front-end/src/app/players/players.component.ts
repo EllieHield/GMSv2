@@ -11,7 +11,14 @@ import { Club } from '../types/Club';
 interface PlayerRow extends Player {
   club: string | undefined;
   team: string | undefined;
-} 
+}
+
+const mapItems = <T extends { id: string }>(data: T[]) => {
+  return data.reduce<Record<string, T>>((acc, item) => {
+    acc[item.id] = item;
+    return acc;
+  }, {})
+}
 
 @Component({
   selector: 'app-players',
@@ -19,14 +26,14 @@ interface PlayerRow extends Player {
   styleUrls: ['./players.component.css']
 })
 export class PlayersComponent {
-  teams: Team[] = [];
-  clubs: Club[] = [];
-  public teamData$ = this.teamService.getTeams().subscribe(data => this.teams = data);
-  public clubData$ = this.clubService.getClubs().subscribe(data => this.clubs = data);
+  teams: Record<string, Team> = {};
+  clubs: Record<string, Club> = {};
+  public teamData$ = this.teamService.getTeams().subscribe(data => this.teams = mapItems(data));
+  public clubData$ = this.clubService.getClubs().subscribe(data => this.clubs = mapItems(data));
   public rowData$: Observable<PlayerRow[]> = this.playerService.getPlayers().pipe(
     map(players => players.map(player => {
-      const team = this.teams.find(team => team.id === player.teamId);
-      const club = this.clubs.find(club => club.id === team?.clubId);
+      const team = this.teams[player.teamId];
+      const club = this.clubs[team?.clubId];
       return {
         ...player,
         club: club?.name,
