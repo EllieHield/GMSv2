@@ -38,6 +38,10 @@ public class Player {
         return email;
     }
 
+    public UUID getTeamId() {
+        return teamId;
+    }
+
     public void setId(UUID id) {
         this.id = id;
     }
@@ -52,10 +56,6 @@ public class Player {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public UUID getTeamId() {
-        return teamId;
     }
 
     public void setTeamId(UUID teamId) {

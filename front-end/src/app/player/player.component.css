@@ -1,0 +1,21 @@
+.player-card {
+    background-color: var(--light-green-background);
+    padding: 2rem;
+    margin: 1rem;
+    margin-left: 0rem;
+    width: fit-content;
+}
+
+.player-contents {
+    display: flex;
+    align-items: flex-start;
+}
+
+.player-details {
+    text-align: left;
+}
+
+.player-image {
+    height: 13rem;
+    margin-left: 3rem;
+}
