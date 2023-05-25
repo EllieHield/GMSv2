@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PlayerComponent } from './player/player.component';
 import { PlayersComponent } from './players/players.component';
+import { NewPlayerFormComponent } from './players/new-player-form/new-player-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PlayersComponent } from './players/players.component';
     AddClubFormComponent,
     HomeComponent,
     PlayerComponent,
-    PlayersComponent
+    PlayersComponent,
+    NewPlayerFormComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { PlayersComponent } from './players/players.component';
       { path: 'clubs/add', component: AddClubFormComponent },
       { path: 'clubs/:clubId', component: ClubComponent },
       { path: 'teams/:teamId', component: TeamComponent },
+      { path: 'players/new', component: NewPlayerFormComponent },
       { path: 'players/:playerId', component: PlayerComponent },
       { path: 'players', component: PlayersComponent }
     ]),

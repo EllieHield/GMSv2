@@ -1,5 +1,36 @@
+<h2>New Player Registration:</h2>
 <form [formGroup]="playerForm">
-    <label>Name:</label><input type="text" formControlName="name">
-    <label>Address:</label><input type="text" formControlName="address">
-    <label>Email:</label><input type="text" formControlName="email">
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td><input type="text" formControlName="name"><br></td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td><input type="text" formControlName="address"><br></td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td><input type="text" formControlName="email"><br></td>
+        </tr>
+        <tr>
+            <th>Select a club</th>
+            <td>
+                <select formControlName="club">
+                    <option *ngFor="let club of clubs" [ngValue]="club.id">{{club.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th *ngIf="teams.length > 0">Select a team</th>
+            <td>
+                <select *ngIf="teams.length > 0" formControlName="team">
+                    <option *ngFor="let team of teams" [ngValue]="team.id">{{team.name}}</option>
+                </select>
+            </td>
+        </tr> 
+    </table>
+    <div>{{playerForm.invalid}}</div>
+    <button type="button" [disabled]="playerForm.invalid" (click)="submit()">Submit</button>
+    <div *ngIf="playerForm.invalid">Required fields missing.</div>
 </form>

@@ -18,4 +18,8 @@ export class PlayerService {
     public getPlayer(id: string): Observable<Player> {
         return this.http.get<Player>(`${this.playersHost}/${id}`);
     }
+
+    public addPlayer(player: Player): Observable<Object> {
+        return this.http.post(this.playersHost, player);
+    }
 }
