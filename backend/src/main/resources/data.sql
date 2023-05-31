@@ -7,9 +7,16 @@ INSERT INTO club (id, name, address, shortName) VALUES (4, 'Beeston Hockey Club'
 -- TEAMS
 INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (1, 'First Team', 0, 0, 1, 1);
 INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (2, 'Second Team', 1, 0, 1, 1);
-INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (3, 'First Team', 0, 1, 1, 2);
-INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (4, 'First Team', 0, 0, 1, 3);
-INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (5, 'First Team', 0, 0, 1, 4);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (3, 'Mens 1s', 0, 1, 1, 2);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (4, 'Mens 2s', 0, 1, 1, 2);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (5, 'Ladies 1s', 0, 1, 1, 2);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (6, 'Ladies 2s', 0, 1, 1, 2);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (7, 'Cubs', 0, 0, 1, 3);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (8, 'Badgers', 0, 0, 1, 3);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (9, 'Yetis', 0, 0, 1, 3);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (10, 'Worst Team', 0, 0, 1, 4);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (11, 'Best Team', 0, 0, 1, 4);
+INSERT INTO team (id, name, league, gender, age_range, clubId) VALUES (12, 'Hairy Chest Team', 0, 0, 1, 4);
 
 -- PLAYERS
 INSERT INTO player (id, name, address, email, teamId) VALUES (1, 'Ellie Hield', 'Awesome Road 1', 'ehield@scottlogic.com', 1);
